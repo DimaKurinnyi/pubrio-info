@@ -14,7 +14,7 @@ export default function Home() {
         <div className="relative z-10 flex flex-col items-center justify-center py-20 px-6 md:px-40">
           <h1 className="text-4xl md:text-6xl font-bold bg-[linear-gradient(rgb(1,60,243)_0%,rgb(124,156,255)_100%)] bg-clip-text text-transparent pb-2">Pubrio AI-powered</h1>
           <h1 className="text-2xl md:text-4xl font-bold text-black pb-4">B2B Lead Generation Platform</h1>
-          <h3 className=" font-semibold text-gray-500 text-[10px] text-center md:text-[16px]">Find verified business contacts and drive growth with AI-driven insights and automation.</h3>
+          <h3 className=" font-semibold text-gray-500 text-[10px] text-center md:text-[16px]">Find verified B2B leads and streamline your prospecting with AI-powered insights.</h3>
           <a href="https://pubrio.pxf.io/dONgNW" className="mt-4 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
             Sign up for free
           </a>
