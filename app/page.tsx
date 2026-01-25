@@ -1,3 +1,4 @@
+'use client';
 import { BriefcaseBusiness, Earth, FileSpreadsheet, Handshake, Send, ShieldCheck, Speech, Target } from 'lucide-react';
 
 export default function Home() {
@@ -15,7 +16,16 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-bold bg-[linear-gradient(rgb(1,60,243)_0%,rgb(124,156,255)_100%)] bg-clip-text text-transparent pb-2">Pubrio AI-powered</h1>
           <h1 className="text-2xl md:text-4xl font-bold text-black pb-4">Sales Prospecting Tool for B2B Team</h1>
           <h3 className=" font-semibold text-gray-500 text-[10px] text-center md:text-[16px]">Built for sales managers and SDRs who need accurate B2B leads and decision-maker data.</h3>
-          <a href="https://pubrio.pxf.io/dONgNW" className="mt-4 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
+          <a
+            href="https://pubrio.pxf.io/dONgNW"
+            onClick={() => {
+              if (typeof window !== 'undefined' && (window as any).gtag) {
+                (window as any).gtag('event', 'conversion', {
+                  send_to: 'AW-17889136948',
+                });
+              }
+            }}
+            className="mt-4 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
             Sign up for free
           </a>
         </div>
