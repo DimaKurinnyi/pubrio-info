@@ -1,4 +1,10 @@
 'use client';
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
 import { BriefcaseBusiness, Earth, FileSpreadsheet, Handshake, Send, ShieldCheck, Speech, Target } from 'lucide-react';
 
 export default function Home() {
@@ -18,11 +24,22 @@ export default function Home() {
           <h3 className=" font-semibold text-gray-500 text-[10px] text-center md:text-[16px]">Built for sales managers and SDRs who need accurate B2B leads and decision-maker data.</h3>
           <a
             href="https://pubrio.pxf.io/dONgNW"
-            onClick={() => {
-              if (typeof window !== 'undefined' && (window as any).gtag) {
-                (window as any).gtag('event', 'conversion', {
-                  send_to: 'AW-17889136948',
+            onClick={(e) => {
+              e.preventDefault();
+
+              const url = 'https://pubrio.pxf.io/dONgNW';
+
+              if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'conversion', {
+                  send_to: 'AW-17889136948/xqpWCPCJ4PaELSimtJC',
+                  value: 1.0,
+                  currency: 'PLN',
+                  event_callback: () => {
+                    window.location.href = url;
+                  },
                 });
+              } else {
+                window.location.href = url;
               }
             }}
             className="mt-4 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
@@ -115,7 +132,27 @@ export default function Home() {
         <div className="bg-[#f6f9ff] py-12">
           <h1 className="md:text-4xl text-2xl font-semibold text-black text-center ">Get started with Pubrio and unlock better B2B leads</h1>
           <div className=" flex items-center justify-center">
-            <a href="https://pubrio.pxf.io/dONgNW" className="mt-4 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
+            <a
+              href="https://pubrio.pxf.io/dONgNW"
+              onClick={(e) => {
+                e.preventDefault();
+
+                const url = 'https://pubrio.pxf.io/dONgNW';
+
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'conversion', {
+                    send_to: 'AW-17889136948/xqpWCPCJ4PaELSimtJC',
+                    value: 1.0,
+                    currency: 'PLN',
+                    event_callback: () => {
+                      window.location.href = url;
+                    },
+                  });
+                } else {
+                  window.location.href = url;
+                }
+              }}
+              className="mt-4 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
               Sign up for free
             </a>
           </div>
