@@ -31,7 +31,7 @@ export default function Home() {
 
               if (typeof window !== 'undefined' && window.gtag) {
                 window.gtag('event', 'conversion', {
-                  send_to: 'AW-17889136948/xqpWCPCJ4PaELSimtJC',
+                  send_to: 'AW-17889136948/YN-ICJSD8fAbELSimtJC',
                   value: 1.0,
                   currency: 'PLN',
                   event_callback: () => {
@@ -141,7 +141,7 @@ export default function Home() {
 
                 if (typeof window !== 'undefined' && window.gtag) {
                   window.gtag('event', 'conversion', {
-                    send_to: 'AW-17889136948/xqpWCPCJ4PaELSimtJC',
+                    send_to: 'AW-17889136948/YN-ICJSD8fAbELSimtJC',
                     value: 1.0,
                     currency: 'PLN',
                     event_callback: () => {
