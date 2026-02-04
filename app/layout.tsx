@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
-import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
+import Script from 'next/script';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,10 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Google Ads tag */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17889136948"
-          strategy="afterInteractive"
-        />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-17889136948" strategy="afterInteractive" />
         <Script id="google-ads" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -42,7 +39,8 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {children}
         <Analytics />
       </body>
     </html>

@@ -1,11 +1,13 @@
 'use client';
 
+import { BriefcaseBusiness, Earth, FileSpreadsheet, Handshake, Send, ShieldCheck, Speech, Target } from 'lucide-react';
+import Footer from '../components/Footer';
+
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
+    gtag?: (...args: unknown[]) => void;
   }
 }
-import { BriefcaseBusiness, Earth, FileSpreadsheet, Handshake, Send, ShieldCheck, Speech, Target } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -19,8 +21,10 @@ export default function Home() {
             filter: 'blur(40px)',
           }}></div> */}
         <div className="relative z-10 flex flex-col items-center justify-center py-20 px-6 md:px-40">
-          <h1 className="text-4xl md:text-6xl font-bold bg-[linear-gradient(rgb(1,60,243)_0%,rgb(124,156,255)_100%)] bg-clip-text text-transparent pb-2">Pubrio AI-powered</h1>
-          <h1 className="text-2xl md:text-4xl font-bold text-black pb-4">Sales Prospecting Tool for B2B Team</h1>
+          <h1 className="text-4xl md:text-6xl font-bold bg-[linear-gradient(rgb(1,60,243)_0%,rgb(124,156,255)_100%)] bg-clip-text text-transparent pb-2 text-center">
+            Independent Review of Pubrio – B2B Lead Generation Software
+          </h1>
+          <h1 className="text-2xl md:text-4xl font-bold text-black pb-4">B2B Lead Generation Platform</h1>
           <h3 className=" font-semibold text-gray-500 text-[10px] text-center md:text-[16px]">Built for sales managers and SDRs who need accurate B2B leads and decision-maker data.</h3>
           <a
             href="https://pubrio.pxf.io/dONgNW"
@@ -43,8 +47,9 @@ export default function Home() {
               }
             }}
             className="mt-4 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
-            Sign up for free
+            Visit Pubrio official website
           </a>
+          <p className="text-xs text-gray-500 mt-2">*Affiliate link. We may earn a commission if you sign up.</p>
         </div>
       </div>
       <div className="px-6 md:px-40 py-12  ">
@@ -131,7 +136,7 @@ export default function Home() {
       <div className=" mt-8  px-6 md:px-40 ">
         <div className="bg-[#f6f9ff] py-12">
           <h1 className="md:text-4xl text-2xl font-semibold text-black text-center ">Get started with Pubrio and unlock better B2B leads</h1>
-          <div className=" flex items-center justify-center">
+          <div className=" flex items-center justify-center flex-col">
             <a
               href="https://pubrio.pxf.io/dONgNW"
               onClick={(e) => {
@@ -153,15 +158,14 @@ export default function Home() {
                 }
               }}
               className="mt-4 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
-              Sign up for free
+              Visit Pubrio official website
             </a>
+            <p className="text-xs text-gray-500 mt-2">*Affiliate link. We may earn a commission if you sign up.</p>
           </div>
         </div>
       </div>
 
-      <footer className="flex items-center justify-center mt-8">
-        <p className="text-gray-500 md:text-sm text-[12px] text-center mt-8">This page provides informational content about Pubrio. Pubrio trademarks belong to their respective owners.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
