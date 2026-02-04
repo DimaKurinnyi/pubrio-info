@@ -21,10 +21,10 @@ export default function Home() {
             filter: 'blur(40px)',
           }}></div> */}
         <div className="relative z-10 flex flex-col items-center justify-center py-20 px-6 md:px-40">
-          <h1 className="text-4xl md:text-6xl font-bold bg-[linear-gradient(rgb(1,60,243)_0%,rgb(124,156,255)_100%)] bg-clip-text text-transparent pb-2 text-center">
+          <h1 className="text-3xl md:text-6xl font-bold bg-[linear-gradient(rgb(1,60,243)_0%,rgb(124,156,255)_100%)] bg-clip-text text-transparent pb-2 text-center">
             Independent Review of Pubrio – B2B Lead Generation Software
           </h1>
-          <h1 className="text-2xl md:text-4xl font-bold text-black pb-4">B2B Lead Generation Platform</h1>
+          <h1 className="text-xl md:text-4xl font-bold text-black pb-4">B2B Lead Generation Platform</h1>
           <h3 className=" font-semibold text-gray-500 text-[10px] text-center md:text-[16px]">Built for sales managers and SDRs who need accurate B2B leads and decision-maker data.</h3>
           <a
             href="https://pubrio.pxf.io/dONgNW"
