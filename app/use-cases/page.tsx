@@ -1,129 +1,132 @@
-import Navbar from '@/components/Navbar';
+'use client';
+import { motion } from "framer-motion";
+import { Users, Building2, TrendingUp, Briefcase, ArrowRight } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import UseCaseCard from "@/components/UseCaseCard";
+import BackgroundEffects from "@/components/BackgroundEffects";
 
-export default function Page() {
-  const glassPanel = 'bg-white/70 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300';
 
-  const badge = 'inline-flex items-center px-4 py-2 bg-white/60 backdrop-blur-md border border-blue-100 rounded-full text-sm uppercase tracking-wider text-blue-600';
+const useCases = [
+  {
+    title: "B2B Sales Teams",
+    icon: Users,
+    items: [
+      "Ideal customer profile targeting",
+      "Discover decision makers",
+      "Build outbound lists",
+    ],
+  },
+  {
+    title: "SaaS Companies",
+    icon: Building2,
+    items: [
+      "Account-based prospecting",
+      "Companies scaling or hiring",
+      "Industry monitoring",
+    ],
+  },
+  {
+    title: "Marketing & Growth Teams",
+    icon: TrendingUp,
+    items: [
+      "Identify verticals",
+      "Validate segments",
+      "Campaign lead lists",
+    ],
+  },
+  {
+    title: "Agencies",
+    icon: Briefcase,
+    items: [
+      "Prospect lists for clients",
+      "Targeted outreach",
+      "ABM support",
+    ],
+  },
+];
 
-  const h1 = 'text-4xl md:text-6xl font-bold tracking-tight text-slate-900';
-  const sectionTitle = 'text-2xl md:text-3xl font-semibold text-slate-900';
-  const body = 'text-lg text-slate-600 leading-relaxed';
-  const bulletDot = 'mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400';
-  const bulletRow = 'flex items-start gap-3';
-
+const Index = () => {
   return (
-    <>
+    <div className="relative min-h-screen overflow-x-hidden">
+      <BackgroundEffects />
       <Navbar />
-      {/* Fixed Background Layers */}
-      <div className="fixed inset-0 -z-20 pointer-events-none">
-        {/* Blob 1 */}
-        <div className="absolute -top-37.5 -left-37.5 w-125 h-125 bg-blue-500 rounded-full blur-3xl opacity-20" />
-        {/* Blob 2 */}
-        <div className="absolute -bottom-50 -right-37.5 w-150 h-150 bg-blue-600 rounded-full blur-3xl opacity-15" />
-        {/* Blob 3 */}
-        <div className="absolute top-[40%] left-[50%] w-100 h-100 bg-blue-600 rounded-full blur-3xl opacity-10" />
-      </div>
-      {/* Radial Gradient */}
-      <div className="fixed inset-0 -z-10 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,rgba(96,165,250,0.15),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(96,165,250,0.12),transparent_45%)]" />
-      {/* Noise Overlay */}
-      <div
-        className="fixed inset-0 -z-10 pointer-events-none mix-blend-soft-light opacity-[0.04]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
-      />
 
-      <main className="relative overflow-x-hidden mx-auto px-6 py-0 min-h-screen pt-20">
-        <div className="relative mx-auto max-w-6xl px-6">
-          <section className="py-32">
-            <div className="mx-auto max-w-4xl text-center">
-              <div className={badge}>Use Cases</div>
-              <h1 className={`mt-6 ${h1}`}>Who Uses Pubrio and How</h1>
-              <p className={`mt-6 ${body}`}>Pubrio supports modern go-to-market teams that need a tighter loop between market signals, high-quality contact data, and focused outbound execution.</p>
-            </div>
+      <main className="relative mx-auto max-w-6xl px-6 pt-32 pb-24">
+        {/* Hero Section */}
+        <section className="py-16 md:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-flex items-center px-4 py-1.5 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold uppercase tracking-widest border border-blue-500/10">
+                Use Cases
+              </span>
+            </motion.div>
 
-            <div className="mx-auto mt-24 max-w-4xl space-y-16">
-              <article className={`${glassPanel} border-l-4 border-l-blue-400/40 p-10`}>
-                <h2 className={sectionTitle}>B2B Sales Teams</h2>
-                <ul className="mt-6 grid gap-3 text-slate-600">
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>Ideal customer profile targeting</span>
-                  </li>
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>Discover decision makers</span>
-                  </li>
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>Build outbound lists</span>
-                  </li>
-                </ul>
-              </article>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mt-8 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-800 leading-[1.1]"
+            >
+              Who Uses{" "}
+              <span className="text-blue-500">Pubrio</span>
+              {" "}and How
+            </motion.h1>
 
-              <article className={`${glassPanel} border-l-4 border-l-blue-400/40 p-10`}>
-                <h2 className={sectionTitle}>SaaS Companies</h2>
-                <ul className="mt-6 grid gap-3 text-slate-600">
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>Account-based prospecting</span>
-                  </li>
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>Companies scaling or hiring</span>
-                  </li>
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>Industry monitoring</span>
-                  </li>
-                </ul>
-              </article>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-6 text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto"
+            >
+              Pubrio supports modern go-to-market teams that need a tighter loop
+              between market signals, high-quality contact data, and focused
+              outbound execution.
+            </motion.p>
+          </div>
+        </section>
 
-              <article className={`${glassPanel} border-l-4 border-l-blue-400/40 p-10`}>
-                <h2 className={sectionTitle}>Marketing & Growth Teams</h2>
-                <ul className="mt-6 grid gap-3 text-slate-600">
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>Identify verticals</span>
-                  </li>
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>Validate segments</span>
-                  </li>
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>Campaign lead lists</span>
-                  </li>
-                </ul>
-              </article>
+        {/* Use Case Cards */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {useCases.map((uc, i) => (
+            <UseCaseCard
+              key={uc.title}
+              title={uc.title}
+              items={uc.items}
+              icon={uc.icon}
+              index={i}
+            />
+          ))}
+        </section>
 
-              <article className={`${glassPanel} border-l-4 border-l-blue-400/40 p-10`}>
-                <h2 className={sectionTitle}>Agencies</h2>
-                <ul className="mt-6 grid gap-3 text-slate-600">
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>Prospect lists for clients</span>
-                  </li>
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>Targeted outreach</span>
-                  </li>
-                  <li className={bulletRow}>
-                    <span className={bulletDot} />
-                    <span>ABM support</span>
-                  </li>
-                </ul>
-              </article>
-
-              <section className="pt-4 text-center">
-                <a href="/how-it-works" className="inline-flex rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white shadow-lg shadow-blue-500/20 transition duration-300 hover:bg-blue-500">
-                  See How Pubrio Works
-                </a>
-              </section>
-            </div>
-          </section>
-        </div>
+        {/* CTA */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-20 md:mt-28 text-center"
+        >
+          <a
+            href="/how-it-works"
+            className="group inline-flex items-center gap-2 rounded-xl bg-blue-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5"
+          >
+            See How Pubrio Works
+            <ArrowRight
+              size={18}
+              className="group-hover:translate-x-1 transition-transform duration-200"
+            />
+          </a>
+        </motion.section>
       </main>
-    </>
+
+      {/* Footer */}
+      
+    </div>
   );
-}
+};
+
+export default Index;

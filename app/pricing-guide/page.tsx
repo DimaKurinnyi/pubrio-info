@@ -1,4 +1,6 @@
+'use client';
 import Navbar from '@/components/Navbar';
+import PricingSection from '@/components/PricingSaction';
 
 export default function Page() {
   const glassSection = 'bg-white/70 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300';
@@ -37,7 +39,9 @@ export default function Page() {
         <div className="relative mx-auto max-w-6xl px-6">
           <section className="py-32">
             <div className="mx-auto max-w-4xl text-center">
-              <div className={badge}>Pricing Guide</div>
+              <span className="inline-flex items-center px-4 py-1.5 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold uppercase tracking-widest border border-blue-500/10">
+                Pricing Guide
+              </span>
               <h1 className={`mt-6 ${h1}`}>Pubrio Pricing & Access Guide</h1>
               <p className={`mt-6 ${body}`}>
                 Pubrio pricing depends on platform usage, automation features, and data access level. Users typically start with a free trial or demo to evaluate the platform before upgrading.
@@ -107,13 +111,15 @@ export default function Page() {
                 </ul>
               </article>
 
-              <article className={`${glassSection} p-10`}>
+              {/* <article className={`${glassSection} p-10`}>
                 <h2 className={sectionTitle}>Where to Find Official Pricing</h2>
                 <p className={`mt-6 ${body}`}>Official pricing can change—use Pubrios official sources for the latest details.</p>
-              </article>
+              </article> */}
+
+              <PricingSection />
 
               {/* Final Premium CTA Card */}
-              <section className="relative">
+              <section className=" relative">
                 <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
                   <div className="h-130 w-130 rounded-full bg-blue-400 blur-3xl opacity-20" />
                 </div>
@@ -123,9 +129,25 @@ export default function Page() {
                     <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-slate-900">View Official Pubrio Pricing</h2>
                     <p className={`mt-4 ${body}`}>Get the current plan details directly from the source.</p>
                     <a
-                      href="https://pubrio.com"
-                      target="_blank"
-                      rel="noreferrer"
+                      href="https://pubrio.pxf.io/dONgNW"
+                      onClick={(e) => {
+                        e.preventDefault();
+
+                        const url = 'https://pubrio.pxf.io/dONgNW';
+
+                        if (typeof window !== 'undefined' && window.gtag) {
+                          window.gtag('event', 'conversion', {
+                            send_to: 'AW-17889136948/YN-ICJSD8fAbELSimtJC',
+                            value: 1.0,
+                            currency: 'PLN',
+                            event_callback: () => {
+                              window.location.href = url;
+                            },
+                          });
+                        } else {
+                          window.location.href = url;
+                        }
+                      }}
                       className="mt-8 inline-flex rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white shadow-lg shadow-blue-500/20 transition duration-300 hover:bg-blue-500">
                       View Official Pubrio Pricing
                     </a>

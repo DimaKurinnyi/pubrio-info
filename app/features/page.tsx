@@ -1,3 +1,4 @@
+'use client';
 import Navbar from '@/components/Navbar';
 
 export default function Page() {
@@ -38,7 +39,9 @@ export default function Page() {
           {/* Hero */}
           <section className="py-32">
             <div className="mx-auto max-w-4xl text-center">
-              <div className={badge}>Platform Capabilities</div>
+              <span className="inline-flex items-center px-4 py-1.5 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold uppercase tracking-widest border border-blue-500/10">
+                Platform capabilities
+              </span>
               <h1 className={`mt-6 ${h1}`}>Pubrio Platform Features Overview</h1>
               <p className={`mt-6 ${body}`}>
                 Pubrio is designed to help B2B sales teams identify and prioritize high-probability prospects using AI-driven data analysis. Below is an overview of the core capabilities that make the
@@ -148,9 +151,25 @@ export default function Page() {
                   <div className="text-sm uppercase tracking-wider text-blue-600">Official Resource</div>
                   <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-slate-900">Visit Official Pubrio Website</h2>
                   <a
-                    href="https://pubrio.com"
-                    target="_blank"
-                    rel="noreferrer"
+                    href="https://pubrio.pxf.io/dONgNW"
+                    onClick={(e) => {
+                      e.preventDefault();
+
+                      const url = 'https://pubrio.pxf.io/dONgNW';
+
+                      if (typeof window !== 'undefined' && window.gtag) {
+                        window.gtag('event', 'conversion', {
+                          send_to: 'AW-17889136948/YN-ICJSD8fAbELSimtJC',
+                          value: 1.0,
+                          currency: 'PLN',
+                          event_callback: () => {
+                            window.location.href = url;
+                          },
+                        });
+                      } else {
+                        window.location.href = url;
+                      }
+                    }}
                     className="mt-8 inline-flex rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white shadow-lg shadow-blue-500/20 transition duration-300 hover:bg-blue-500">
                     Visit Pubrio
                   </a>

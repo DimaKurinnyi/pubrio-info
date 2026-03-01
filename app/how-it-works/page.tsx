@@ -34,9 +34,11 @@ export default function Page() {
           {/* Decorative Glow */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 bg-blue-400 rounded-full blur-3xl opacity-20 -z-10" />
           {/* Badge */}
-          <div className="inline-flex px-4 py-2 bg-white/60 backdrop-blur-md border border-blue-100 rounded-full text-sm uppercase tracking-wider text-blue-600 mb-6">How It Works</div>
+          <span className="inline-flex items-center px-4 py-1.5 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold uppercase tracking-widest border border-blue-500/10">
+                How It Works
+              </span>
           {/* Heading */}
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900">How Pubrio Works — AI-Powered B2B Prospecting Engine</h1>
+          <h1 className="text-4xl md:text-6xl mt-6 font-bold tracking-tight text-slate-900">How Pubrio Works — AI-Powered B2B Prospecting Engine</h1>
           {/* Subheading */}
           <p className="text-lg md:text-xl text-slate-600 mt-6">Identify high-intent companies, access verified decision-makers, and focus on prospects ready to buy.</p>
           {/* CTA Button */}

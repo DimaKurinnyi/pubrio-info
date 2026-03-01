@@ -1,120 +1,68 @@
 'use client';
-
+import { AnimatePresence, motion } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
+const navLinks = [
+  { label: 'How it works', href: '/how-it-works' },
+  { label: 'Features', href: '/features' },
+  { label: 'Use Cases', href: '/use-cases' },
+  { label: 'Price', href: '/pricing-guide' },
+];
 
-  const lastScrollY = useRef<number>(0);
-  const ticking = useRef<boolean>(false);
-  const threshold = 10; // px
-
-  // Close mobile menu when resizing to md and above
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth >= 768 && isOpen) {
-        setIsOpen(false);
-      }
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isOpen]);
-
-  useEffect(() => {
-    lastScrollY.current = typeof window !== 'undefined' ? window.scrollY : 0;
-
-    function onScroll() {
-      // store latest value and schedule rAF if not already scheduled
-      const currentY = window.scrollY;
-      if (!ticking.current) {
-        ticking.current = true;
-        window.requestAnimationFrame(() => {
-          const delta = currentY - lastScrollY.current;
-
-          if (Math.abs(delta) > threshold) {
-            if (delta > 0 && currentY > 50) {
-              // scrolled down
-              setVisible(false);
-            } else if (delta < 0) {
-              // scrolled up
-              setVisible(true);
-            }
-            lastScrollY.current = currentY;
-          }
-
-          ticking.current = false;
-        });
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const toggleMenu = () => setIsOpen((v) => !v);
-
-  const handleLinkClick = () => setIsOpen(false);
+const Navbar = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <>
-      <nav
-        className={`fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_0_60px_rgba(59,130,246,0.12)] transition-transform duration-300 ${visible ? 'translate-y-0' : '-translate-y-full'}`}
-        aria-hidden={false}>
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <div className="flex items-center space-x-4">
-            <Link href="/" className="text-lg font-semibold text-blue-400">
-              Pubrito
-            </Link>
-          </div>
+    <motion.header initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }} className="fixed top-0 left-0 right-0 z-50">
+      <div className="mx-auto max-w-6xl px-6 pt-4">
+        <nav className="glass-card rounded-2xl px-6 py-3 flex items-center justify-between shadow-lg shadow-primary/5">
+          <Link href="/" className="text-xl font-bold text-blue-500 tracking-tight">
+            Pubrito
+          </Link>
 
-          {/* Desktop nav */}
-          <div className="hidden items-center space-x-8 md:flex">
-            <Link href="/how-it-works" className="text-blue-400 transition-colors font-bold hover:text-blue-500">
-              How it works
-            </Link>
-            <Link href="/features" className="text-blue-400 transition-colors font-bold hover:text-blue-500">
-              Features
-            </Link>
-            <Link href="/use-cases" className="text-blue-400 transition-colors font-bold  hover:text-blue-500">
-              Use case
-            </Link>
-            <Link href="/pricing-guide" className="text-blue-400 transition-colors font-bold hover:text-blue-500">
-              Price
-            </Link>
-          </div>
+          {/* Desktop */}
+          <ul className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <li key={link.label}>
+                <Link href={link.href} className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 rounded-lg hover:bg-blue-100 transition-colors duration-200">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-          {/* Mobile burger */}
-          <div className="md:hidden">
-            <button type="button" aria-expanded={isOpen} aria-label="Toggle menu" onClick={toggleMenu} className="relative w-8 h-8 flex items-center justify-center">
-              <span className={`block w-6 h-0.5 bg-blue-600 transform transition-all duration-300 ease-in-out origin-center absolute ${isOpen ? 'rotate-45 ' : '-translate-y-2'}`} />
-              <span className={`block w-6 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out absolute ${isOpen ? 'opacity-0' : 'opacity-100'}`} />
-              <span className={`block w-6 h-0.5 bg-blue-600 transform transition-all duration-300 ease-in-out origin-center absolute ${isOpen ? '-rotate-45 ' : 'translate-y-2'}`} />
-            </button>
-          </div>
-        </div>
+          {/* Mobile toggle */}
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors">
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </nav>
 
-        {/* Mobile menu (smooth slide-down) */}
-        <div
-          className={`w-full overflow-hidden bg-[#0B1120]/80 backdrop-blur-xl transition-all duration-300 ease-in-out md:hidden px-6 py-0 shadow-[0_0_40px_rgba(59,130,246,0.10)] flex flex-col space-y-4 ${
-            isOpen ? 'max-h-125 opacity-100 py-4' : 'max-h-0 opacity-0'
-          }`}>
-          <Link href="/how-it-works" onClick={handleLinkClick} className="text-blue-600 transition-colors hover:text-blue-500">
-            How it works
-          </Link>
-          <Link href="/features" onClick={handleLinkClick} className="text-blue-600 transition-colors hover:text-blue-500">
-            Features
-          </Link>
-          <Link href="/use-cases" onClick={handleLinkClick} className="text-blue-600 transition-colors hover:text-blue-500">
-            Use case
-          </Link>
-          <Link href="/pricing-guide" onClick={handleLinkClick} className="text-blue-600 transition-colors hover:text-blue-500">
-            Price
-          </Link>
-        </div>
-      </nav>
-    </>
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden mt-2 glass-card rounded-2xl p-4 shadow-lg">
+              <ul className="space-y-1">
+                {navLinks.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-gray-900 hover:bg-bg-blue-100 rounded-lg transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.header>
   );
-}
+};
+
+export default Navbar;
