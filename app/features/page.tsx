@@ -1,5 +1,6 @@
 'use client';
 import Navbar from '@/components/Navbar';
+import { motion } from 'framer-motion';
 
 export default function Page() {
   const glassCard = 'bg-white/70 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300';
@@ -39,19 +40,25 @@ export default function Page() {
           {/* Hero */}
           <section className="py-32">
             <div className="mx-auto max-w-4xl text-center">
-              <span className="inline-flex items-center px-4 py-1.5 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold uppercase tracking-widest border border-blue-500/10">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="inline-flex items-center px-4 py-1.5 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold uppercase tracking-widest border border-blue-500/10">
                 Platform capabilities
-              </span>
-              <h1 className={`mt-6 ${h1}`}>Pubrio Platform Features Overview</h1>
-              <p className={`mt-6 ${body}`}>
+              </motion.span>
+              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className={`mt-6 ${h1}`}>
+                Pubrio Platform Features Overview
+              </motion.h1>
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className={`mt-6 ${body}`}>
                 Pubrio is designed to help B2B sales teams identify and prioritize high-probability prospects using AI-driven data analysis. Below is an overview of the core capabilities that make the
                 platform effective for outbound and growth teams.
-              </p>
+              </motion.p>
             </div>
 
             {/* 5 premium glass cards stacked vertically */}
             <div className="mx-auto mt-24 flex flex-col items-center max-w-4xl space-y-16">
-              <article className={`${glassCard} p-10`}>
+              <motion.article initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }} className={`${glassCard} p-10`}>
                 <h2 className={sectionTitle}>AI-Powered Prospect Discovery</h2>
                 <ul className="mt-6 grid gap-3 text-slate-600 md:grid-cols-2">
                   <li className={bulletRow}>
@@ -72,9 +79,15 @@ export default function Page() {
                   </li>
                 </ul>
                 <p className={`mt-6 ${body}`}>Use signal-based insights to quickly surface accounts that match your ICP—so outbound stays focused on the highest probability targets.</p>
-              </article>
-              <div className=" flex items-center justify-between gap-6">
-                <article className={`${glassCard} p-10 w-[45%]`}>
+              </motion.article>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="flex md:flex-row flex-col items-center justify-between gap-6">
+                <article className={`${glassCard} p-10 md:w-[45%]`}>
                   <h2 className={sectionTitle}>Verified B2B Contact Data</h2>
                   <ul className="mt-6 grid gap-3 text-slate-600">
                     <li className={bulletRow}>
@@ -92,7 +105,7 @@ export default function Page() {
                   </ul>
                 </article>
 
-                <article className={`${glassCard} p-10 w-[45%]`}>
+                <article className={`${glassCard} p-10 md:w-[45%]`}>
                   <h2 className={sectionTitle}>Advanced Filtering & Targeting</h2>
                   <ul className="mt-6 grid gap-3 text-slate-600 md:grid-cols-2">
                     <li className={bulletRow}>
@@ -117,16 +130,22 @@ export default function Page() {
                     </li>
                   </ul>
                 </article>
-              </div>
-              <div className="flex items-center justify-between gap-6">
-                <article className={`${glassCard} p-10 w-[45%] min-h-70`}>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="flex md:flex-row flex-col items-center justify-between gap-6">
+                <article className={`${glassCard} p-10 md:w-[45%] min-h-70`}>
                   <h2 className={sectionTitle}>Intent-Based Targeting</h2>
                   <p className={`mt-6 ${body}`}>
                     Prioritize accounts that are <span className="font-semibold text-blue-600">actively exploring solutions</span> so your team focuses on buyers with immediate needs.
                   </p>
                 </article>
 
-                <article className={`${glassCard} p-10 w-[45%] min-h-70`}>
+                <article className={`${glassCard} p-10 md:w-[45%] min-h-70`}>
                   <h2 className={sectionTitle}>Workflow & Export Capabilities</h2>
                   <ul className="mt-6 grid gap-3 text-slate-600">
                     <li className={bulletRow}>
@@ -143,10 +162,15 @@ export default function Page() {
                     </li>
                   </ul>
                 </article>
-              </div>
+              </motion.div>
 
               {/* CTA Section */}
-              <section className={`${glassCard} p-12 text-center w-full`}>
+              <motion.section
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className={`${glassCard} p-12 text-center w-full`}>
                 <div className="mx-auto max-w-2xl">
                   <div className="text-sm uppercase tracking-wider text-blue-600">Official Resource</div>
                   <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-slate-900">Visit Official Pubrio Website</h2>
@@ -174,7 +198,7 @@ export default function Page() {
                     Visit Pubrio
                   </a>
                 </div>
-              </section>
+              </motion.section>
             </div>
           </section>
         </div>

@@ -2,10 +2,18 @@
 
 import Navbar from '@/components/Navbar';
 import StakedCards from '@/components/StakedCards';
+import { motion } from 'framer-motion';
 
 import { BadgeCheck, BrainCircuit, CheckCircle2, Eye, Megaphone, Radar, RefreshCcw, Rocket, Send, ShieldCheck, Target, TrendingUp, Users, XCircle } from 'lucide-react';
 
 export default function Page() {
+  const HorizontalItems = [
+    { number: 1, title: 'Define ICP' },
+    { number: 2, title: 'Find High-Intent Companies' },
+    { number: 3, title: 'Access Decision Makers' },
+    { number: 4, title: 'Launch Outreach' },
+    { number: 5, title: 'Track & Optimize' },
+  ];
   return (
     <>
       <Navbar />
@@ -29,20 +37,32 @@ export default function Page() {
       />
 
       {/* HERO SECTION */}
-      <main className=" mx-auto px-6 py-0  min-h-screen">
-        <section className="max-w-4xl mx-auto py-32 text-center relative">
+      <main className=" mx-auto px-6 py-0  min-h-screen ">
+        <section className="max-w-4xl mx-auto md:py-32 pt-32 text-center relative">
           {/* Decorative Glow */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 bg-blue-400 rounded-full blur-3xl opacity-20 -z-10" />
           {/* Badge */}
-          <span className="inline-flex items-center px-4 py-1.5 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold uppercase tracking-widest border border-blue-500/10">
-                How It Works
-              </span>
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center px-4 py-1.5 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold uppercase tracking-widest border border-blue-500/10">
+            How It Works
+          </motion.span>
           {/* Heading */}
-          <h1 className="text-4xl md:text-6xl mt-6 font-bold tracking-tight text-slate-900">How Pubrio Works — AI-Powered B2B Prospecting Engine</h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-6xl mt-6 font-bold tracking-tight text-slate-900">
+            How Pubrio Works — AI-Powered B2B Prospecting Engine
+          </motion.h1>
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-slate-600 mt-6">Identify high-intent companies, access verified decision-makers, and focus on prospects ready to buy.</p>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-lg md:text-xl text-slate-600 mt-6">
+            Identify high-intent companies, access verified decision-makers, and focus on prospects ready to buy.
+          </motion.p>
           {/* CTA Button */}
-          <div className="mt-10 flex justify-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mt-10 flex justify-center">
             <a
               href="https://pubrio.pxf.io/dONgNW"
               onClick={(e) => {
@@ -65,18 +85,30 @@ export default function Page() {
               rel="noopener noreferrer">
               Start Free Trial on Pubrio
             </a>
-          </div>
+          </motion.div>
         </section>
 
         {/* 4-STEP PROCESS SECTION */}
         <section className="py-24 max-w-6xl mx-auto px-6">
-          <h1 className="text-3xl md:text-4xl font-semibold text-slate-900 text-center">How Pubrio Finds High-Intent Companies</h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-semibold text-slate-900 text-center">
+            How Pubrio Finds High-Intent Companies
+          </motion.h1>
           <div className="grid md:grid-cols-2 gap-12 mt-16">
             {/* Step 1 */}
-            <div className="relative overflow-hidden bg-white/70 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl p-10 hover:-translate-y-1 hover:shadow-2xl transition duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden bg-white/70 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl p-10 hover:-translate-y-1 hover:shadow-2xl transition duration-300">
               {/* Light Reflection */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-linear-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
+                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-gradient-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
               </div>
               <div className=" flex items-center justify-center gap-2.5 mb-4">
                 <Radar className="w-10 h-10 text-blue-400 " />
@@ -90,12 +122,17 @@ export default function Page() {
                 <li>• Website traffic trends</li>
                 <li>• Market expansion signals</li>
               </ul>
-            </div>
+            </motion.div>
             {/* Step 2 */}
-            <div className="relative overflow-hidden bg-white/70 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl p-10 hover:-translate-y-1 hover:shadow-2xl transition duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden bg-white/70 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl p-10 hover:-translate-y-1 hover:shadow-2xl transition duration-300">
               {/* Light Reflection */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-linear-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
+                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-gradient-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
               </div>
               <div className=" flex items-center justify-center gap-2.5 mb-4">
                 <BrainCircuit className="w-10 h-10 text-blue-400 " />
@@ -107,12 +144,17 @@ export default function Page() {
                 <li>• Scoring likelihood of purchase</li>
                 <li>• Filtering out low-probability prospects</li>
               </ul>
-            </div>
+            </motion.div>
             {/* Step 3 */}
-            <div className="relative overflow-hidden bg-white/70 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl p-10 hover:-translate-y-1 hover:shadow-2xl transition duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden bg-white/70 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl p-10 hover:-translate-y-1 hover:shadow-2xl transition duration-300">
               {/* Light Reflection */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-linear-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
+                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-gradient-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
               </div>
               <div className=" flex items-center justify-center gap-2.5 mb-4">
                 <BadgeCheck className="w-10 h-10 text-blue-400 " />
@@ -126,12 +168,17 @@ export default function Page() {
                 <li>• LinkedIn profiles</li>
               </ul>
               <div className="mt-4 text-blue-600 font-medium">No outdated lists. No scraping noise.</div>
-            </div>
+            </motion.div>
             {/* Step 4 */}
-            <div className="relative overflow-hidden bg-white/70 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl p-10 hover:-translate-y-1 hover:shadow-2xl transition duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden bg-white/70 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl p-10 hover:-translate-y-1 hover:shadow-2xl transition duration-300">
               {/* Light Reflection */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-linear-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
+                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-gradient-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
               </div>
               <div className=" flex items-center justify-center gap-2.5 mb-4">
                 <Send className="w-10 h-10 text-blue-400 " />
@@ -143,20 +190,25 @@ export default function Page() {
                 <li>• Launch cold outreach campaigns</li>
                 <li>• Prioritize accounts with highest buying signals</li>
               </ul>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* COMPARISON BLOCK */}
-        <section className="relative py-32">
-          <div className="text-center mb-16">
+        <section className="relative md:py-32">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl font-semibold text-slate-900">Cold Search vs AI Intent Targeting</h2>
             <p className="text-slate-600 mt-4">The difference between guessing and targeting buying intent.</p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Left Card - Traditional Prospecting */}
-            <div className="bg-white/70 backdrop-blur-xl border border-slate-200 rounded-2xl p-12 shadow-lg">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="bg-white/70 backdrop-blur-xl border border-slate-200 rounded-2xl p-12 shadow-lg">
               <h3 className="text-xl font-semibold text-slate-700 mb-8">Traditional Prospecting</h3>
 
               <div className="space-y-6">
@@ -180,10 +232,15 @@ export default function Page() {
                   <span className="text-slate-600">Outdated data</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Card - Pubrio AI Prospecting (Highlighted) */}
-            <div className="relative bg-white/90 backdrop-blur-xl border border-blue-200 rounded-2xl p-12 shadow-2xl">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative bg-white/90 backdrop-blur-xl border border-blue-200 rounded-2xl p-12 shadow-2xl">
               {/* Glow Effect */}
               <div className="absolute -inset-1 bg-linear-to-r from-blue-400/20 via-blue-500/10 to-blue-400/20 rounded-2xl blur-xl -z-10" />
 
@@ -210,118 +267,155 @@ export default function Page() {
                   <span className="text-blue-700 font-medium">Verified data</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* EXAMPLE WORKFLOW (Extended Flow Version) */}
         <section className="py-32 max-w-7xl mx-auto px-6">
           {/* Section Header */}
-          <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 text-center">How a Sales Team Uses Pubrio in Practice</h2>
-          <p className="text-lg text-slate-600 mt-4 text-center">From signal detection to booked meeting — in 4 simple steps.</p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center">
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 text-center">How a Sales Team Uses Pubrio in Practice</h2>
+            <p className="text-lg text-slate-600 mt-4 text-center">From signal detection to booked meeting — in 4 simple steps.</p>
+          </motion.div>
 
           {/* Horizontal Flow Navigation */}
-          <div className="overflow-x-auto flex items-center justify-between gap-6 mt-16 min-w-max px-4">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-blue-400/20 text-blue-600 flex items-center justify-center font-semibold">1</div>
-              <span className="text-slate-700 font-medium whitespace-nowrap">Define ICP</span>
-            </div>
-            <div className="w-8 h-0.5 bg-blue-200" />
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-blue-400/20 text-blue-600 flex items-center justify-center font-semibold">2</div>
-              <span className="text-slate-700 font-medium whitespace-nowrap">Find High-Intent Companies</span>
-            </div>
-            <div className="w-8 h-0.5 bg-blue-200" />
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-blue-400/20 text-blue-600 flex items-center justify-center font-semibold">3</div>
-              <span className="text-slate-700 font-medium whitespace-nowrap">Access Decision Makers</span>
-            </div>
-            <div className="w-8 h-0.5 bg-blue-200" />
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-blue-400/20 text-blue-600 flex items-center justify-center font-semibold">4</div>
-              <span className="text-slate-700 font-medium whitespace-nowrap">Launch Outreach</span>
-            </div>
-            <div className="w-8 h-0.5 bg-blue-200" />
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-blue-400/20 text-blue-600 flex items-center justify-center font-semibold">5</div>
-              <span className="text-slate-700 font-medium whitespace-nowrap">Track & Optimize</span>
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="overflow-x-auto flex flex-col md:flex-row md:items-center justify-between gap-6 mt-16 min-w-max px-4">
+            {HorizontalItems.map((item) => (
+              <>
+                {' '}
+                <div key={item.number} className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-blue-400/20 text-blue-600 flex items-center justify-center font-semibold">{item.number}</div>
+                  <span className="text-slate-700 font-medium whitespace-nowrap">{item.title}</span>
+                </div>
+                {item.number !== 5 && <div className="md:w-8 h-0.5 bg-blue-200" />}
+              </>
+            ))}
+          </motion.div>
 
           {/* Detailed Step Cards */}
 
           <StakedCards />
           {/* Results Block */}
-          <div className="mt-24 max-w-4xl mx-auto">
-            <div className="bg-white/80 backdrop-blur-xl border border-blue-200 rounded-2xl shadow-2xl p-12 text-center">
-              <h3 className="text-2xl font-semibold text-slate-900 mb-8">Real Impact</h3>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }} className="md:mt-24 max-w-4xl mx-auto">
+            <div className="bg-white/80 backdrop-blur-xl border border-blue-200 rounded-2xl shadow-2xl md:p-12 p-6 text-center">
+              <h3 className="md:text-2xl text-lg font-semibold text-slate-900 mb-8">Real Impact</h3>
               <p className="text-slate-700 mb-6">Companies using intent-based targeting report:</p>
               <div className="grid md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
-                <div className="text-blue-600 font-semibold text-lg">✔ 30–50% higher reply rates</div>
-                <div className="text-blue-600 font-semibold text-lg">✔ Shorter sales cycles</div>
-                <div className="text-blue-600 font-semibold text-lg">✔ Better lead quality</div>
-                <div className="text-blue-600 font-semibold text-lg">✔ Lower cost per acquisition</div>
+                <div className="text-blue-600 font-semibold md:text-lg">✔ 30–50% higher reply rates</div>
+                <div className="text-blue-600 font-semibold md:text-lg">✔ Shorter sales cycles</div>
+                <div className="text-blue-600 font-semibold md:text-lg">✔ Better lead quality</div>
+                <div className="text-blue-600 font-semibold md:text-lg">✔ Lower cost per acquisition</div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* WHO IS IT FOR SECTION */}
-        <section className="py-24 max-w-6xl mx-auto px-6">
-          <h1 className="text-3xl md:text-4xl font-semibold text-slate-900 text-center">Who Is It For</h1>
+        <section className="md:py-24 max-w-6xl mx-auto px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-semibold text-slate-900 text-center">
+            Who Is It For
+          </motion.h1>
           <div className="grid md:grid-cols-3 gap-8 mt-16">
             {/* B2B SaaS sales teams */}
-            <div className="relative overflow-hidden bg-white/70 border border-blue-100 rounded-xl p-6 text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden bg-white/70 border border-blue-100 rounded-xl p-6 text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition duration-300">
               {/* Light Reflection */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-linear-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
+                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-gradient-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
               </div>
               <Rocket className="w-8 h-8 text-blue-400 mb-4 mx-auto" />
               <div className="text-slate-700 font-medium relative z-10">B2B SaaS sales teams</div>
-            </div>
+            </motion.div>
             {/* Marketing agencies */}
-            <div className="relative overflow-hidden bg-white/70 border border-blue-100 rounded-xl p-6 text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden bg-white/70 border border-blue-100 rounded-xl p-6 text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition duration-300">
               {/* Light Reflection */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-linear-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
+                <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-gradient-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
               </div>
               <Megaphone className="w-8 h-8 text-blue-400 mb-4 mx-auto" />
               <div className="text-slate-700 font-medium relative z-10">Marketing agencies</div>
-            </div>
+            </motion.div>
             {/* SDR teams */}
-            <div className="relative overflow-hidden bg-white/70 border border-blue-100 rounded-xl p-6 text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden bg-white/70 border border-blue-100 rounded-xl p-6 text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition duration-300">
               {/* Light Reflection */}
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-gradient-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
               </div>
               <Users className="w-8 h-8 text-blue-400 mb-4 mx-auto" />
               <div className="text-slate-700 font-medium relative z-10">SDR teams</div>
-            </div>
+            </motion.div>
             {/* Growth teams */}
-            <div className="relative overflow-hidden bg-white/70 border border-blue-100 rounded-xl p-6 text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden bg-white/70 border border-blue-100 rounded-xl p-6 text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition duration-300">
               {/* Light Reflection */}
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-gradient-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
               </div>
               <TrendingUp className="w-8 h-8 text-blue-400 mb-4 mx-auto" />
               <div className="text-slate-700 font-medium relative z-10">Growth teams</div>
-            </div>
+            </motion.div>
             {/* Lead generation specialists */}
-            <div className="relative overflow-hidden bg-white/70 border border-blue-100 rounded-xl p-6 text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden bg-white/70 border border-blue-100 rounded-xl p-6 text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition duration-300">
               {/* Light Reflection */}
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-gradient-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
               </div>
               <Target className="w-8 h-8 text-blue-400 mb-4 mx-auto" />
               <div className="text-slate-700 font-medium relative z-10">Lead generation specialists</div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* DATA ACCURACY & COMPLIANCE SECTION */}
         <section className="py-24 ">
-          <h1 className="text-3xl md:text-4xl font-semibold text-slate-900 text-center">Data Accuracy & Compliance</h1>
-          <div className="relative overflow-hidden max-w-4xl mx-auto bg-white/80 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl p-12 mt-16">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-semibold text-slate-900 text-center">
+            Data Accuracy & Compliance
+          </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden max-w-4xl mx-auto bg-white/80 backdrop-blur-xl border border-blue-100 rounded-2xl shadow-xl p-12 mt-16">
             {/* Light Reflection */}
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-gradient-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
@@ -361,17 +455,22 @@ export default function Page() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* FINAL CTA BLOCK */}
-        <section className="max-full mx-auto relative overflow-hidden bg-white/80 backdrop-blur-xl border border-blue-200 rounded-2xl shadow-2xl p-16 mt-24 mb-32 text-center">
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="max-full mx-auto relative overflow-hidden bg-white/80 backdrop-blur-xl border border-blue-200 rounded-2xl shadow-2xl md:p-16 p-7 mt-24 mb-32 text-center">
           {/* Light Reflection */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] bg-gradient-to-br from-white/40 via-white/10 to-transparent rotate-12 opacity-20" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 relative z-10">Start Finding Companies Ready to Buy</h1>
-          <p className="text-lg text-slate-600 mb-10 relative z-10">Stop guessing. Start targeting intent.</p>
+          <h1 className="text-2xl md:text-4xl font-bold text-slate-900 mb-4 relative z-10">Start Finding Companies Ready to Buy</h1>
+          <p className="md:text-lg text-slate-600 mb-10 relative z-10">Stop guessing. Start targeting intent.</p>
           <a
             href="https://pubrio.pxf.io/dONgNW"
             onClick={(e) => {
@@ -390,11 +489,11 @@ export default function Page() {
                 window.location.href = url;
               }
             }}
-            className="px-10 py-5 text-lg bg-blue-600 hover:bg-blue-500 text-white rounded-xl shadow-lg shadow-blue-500/30 font-semibold transition duration-200"
+            className="md:px-10 md:py-5 px-5 py-2.5 md:text-lg text-md bg-blue-600 hover:bg-blue-500 text-white rounded-xl shadow-lg shadow-blue-500/30 font-semibold transition duration-200"
             rel="noopener noreferrer">
             Start Free Trial
           </a>
-        </section>
+        </motion.section>
       </main>
     </>
   );
